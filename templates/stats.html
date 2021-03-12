@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main">
+    <div class="table-wrapper">
+        <h3 class="table-title purple-fg">Activities</h3>
+        <table class="main-table">
+            <tr>
+                <th class="purple-bg-dark">Likes</th>
+                <td class="purple-bg-light">{{ likes }}</td>
+            </tr>
+            <tr>
+                <th class="purple-bg-dark">Comments</th>
+                <td class="purple-bg-light">{{ comms }}</td>
+            </tr>
+            <tr>
+                <th class="purple-bg-dark border-none">Subscribed</th>
+                <td class="purple-bg-light border-none">{{ subs }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="table-wrapper">
+        <h3 class="table-title green-fg">Ages</h3>
+        <table class="main-table">
+                {% for age, count in ages %}
+                <tr>
+                    {% if loop.last %}
+                        <th class="green-bg-dark border-none">{{ age }}</th>
+                        <td class="green-bg-light border-none">{{ count }}</td>
+                    {% else %}
+                        <th class="green-bg-dark">{{ age }}</th>
+                        <td class="green-bg-light">{{ count }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+    <div class="table-wrapper">
+        <h3 class="table-title pink-fg">Cities</h3>
+        <table class="main-table">
+            {% for city, count in cities %}
+                <tr>
+                    {% if loop.last %}
+                        <th class="pink-bg-dark border-none">{{ city }}</th>
+                        <td class="pink-bg-light border-none">{{ count }}</td>
+                    {% else %}
+                        <th class="pink-bg-dark">{{ city }}</th>
+                        <td class="pink-bg-light">{{ count }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</main>
+{% endblock %}
